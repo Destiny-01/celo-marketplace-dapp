@@ -12,6 +12,8 @@ import { useDebounce } from "use-debounce";
 import { useContractSend } from "@/hooks/contract/useContractWrite";
 // Import the erc20 contract abi to get the cUSD balance
 import erc20Instance from "../abi/erc20.json";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { CustomButton } from "./customButton";
 
 // Define the AddProductModal component
 const AddProductModal = () => {
@@ -206,23 +208,30 @@ const AddProductModal = () => {
                     />
                   </div>
                   {/* Button to close the modal */}
-                  <div className="bg-gray-200 px-4 py-3 text-right">
-                    <button
-                      type="button"
-                      className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2"
-                      onClick={() => setVisible(false)}
-                    >
-                      <i className="fas fa-times"></i> Cancel
-                    </button>
-                    {/* Button to add the product to the marketplace */}
-                    <button
-                      type="submit"
-                      disabled={!!loading || !isComplete || !createProduct}
-                      className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"
-                    >
-                      {loading ? loading : "Create"}
-                    </button>
+                  {
+                    address ?
+                    <div className="bg-gray-200 px-4 py-3 text-right">
+                      <button
+                        type="button"
+                        className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2"
+                        onClick={() => setVisible(false)}
+                      >
+                        <i className="fas fa-times"></i> Cancel
+                      </button>
+                      {/* Button to add the product to the marketplace */}
+                      <button
+                        type="submit"
+                        disabled={!!loading || !isComplete || !createProduct}
+                        className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"
+                      >
+                        {loading ? loading : "Create"}
+                      </button>
+                  </div>:
+                  <div className="text-right px-6 py-3">
+                    <CustomButton color="bg-neutral-950" text="text-neutral-300" />
                   </div>
+                  }
+                  
                 </div>
               </div>
             </form>

@@ -2,6 +2,7 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
+import { CustomButton } from "./customButton";
 
 export default function Header() {
     return (
@@ -36,7 +37,7 @@ export default function Header() {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <ConnectButton showBalance={{smallScreen: true, largeScreen: false}} />
+                <CustomButton color={"bg-neutral-950"} text="text-yellow-100" />
                 </div>
               </div>
             </div>
