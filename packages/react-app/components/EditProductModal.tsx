@@ -58,7 +58,7 @@ const EditProductModal = ({ id, product }: Product) => {
 
   // Convert the product price to wei
   const productPriceInWei = ethers.utils.parseEther(
-    debouncedProductPrice.toString()
+    `${debouncedProductPrice.toString() || 0}`
   );
 
   // Use the useContractSend hook to use our editProduct function on the marketplace contract and add a product to the marketplace
